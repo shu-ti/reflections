@@ -1,0 +1,88 @@
+1. What happens when you initialize a repository? Why do you need to do it?
+	when initialize a repository(use: git init), it prints out message: Initialized empty Git repository in C:/Users/name/version-control/reflections/makeArepository/.git/
+	and when we type ls -a, we will see .git
+	use git status to see the status
+	what makes a git repository a repository, a git repository stores a bunch of metadata about the history of the repository since it was created and that is stores in .git
+
+	working directory is a.txt, b.txt, c.txt
+
+	how to add changes to repository: 
+		add commit to the repository need to go through a staging area(use: git add filename), we can add file one at a time to staging area, when ready to commit then git will turn the staging area into a single commit and add that to the repository. (use: git reset filename) when dont want to commit it to the repository
+
+		run git status to see the difference eg:
+		before:
+		On branch master
+
+		Initial commit
+
+		Untracked files:
+  			(use "git add <file>..." to include in what will be committed)
+
+        		a.txt
+        		b.txt
+        		c.txt
+
+		nothing added to commit but untracked files present (use "git add" to track)
+
+		after add to staging area:
+			On branch master
+
+			Initial commit
+
+			Changes to be committed:
+  				(use "git rm --cached <file>..." to unstage)
+
+      				  new file:   a.txt
+        			  new file:   b.txt
+
+			Untracked files:
+  				(use "git add <file>..." to include in what will be committed)
+
+        			  c.txt
+
+        steps: git add name
+        	   git status
+        	   git commit
+
+2. How is the staging area different from the working directory and the repository? What value do you think it offers?
+	
+	staging area allows you to put the file you want to commit in a holder, and let you to think before do any further decision,
+
+	How to write a commit message
+		You're about to make your first commit to your reflections repository. When you do this, you'll need to write a commit message describing your changes. If you followed the instructions in the "Setting Up Your Workspace" video for your platform near the end of Lesson 1, the editor you chose will appear as soon as you run (git commit) and allow you to write a commit message. If you get an error message, you should try revisiting the instructions in Lesson 1 and make sure your text editor is set up properly.
+
+		You can also specify a commit message via the command line by running (git commit -m "Commit message")instead of just git commit. It's still a good idea to get an editor set up, since this will make it easier to write long commit messages that fully describe the change.
+
+		
+3. How can you use the staging area to make sure you have one commit per logical change?
+		we should add to staging area when there is one logical change
+
+
+4. What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+	
+	when you decide to try something else and you dont want to mess up with the master branch, branches can also be create when you have additional ideas
+	oppose to your original once, you can try it out by create a branch for that, you can also merge branches together, this is not only make your master branch clear and at the same time add new features, but also can you fix and find bugs easily.
+	(definition:)
+	master: is the name given to main branch in most git repositories and every time you create a repository, git creates a master branch for you, when 	commit only affect the branch that checkouted combine to branch called merge. 
+	remote branch: means i didnt create myself person who work with you did it, i can use (git checkout branchname) to use it as if i did 
+		when we need different version that is parallel to your master file or when collabrate with others, avoid collide, then after fix them all them use merge to combine them
+	Viewing the commit history
+		The full command Caroline types to see the visual representation of the commit history is (git log --graph --oneline master coins).
+		Checking out the 'coins branch'
+		Note that you'll need to check out the coins branch using the command (git checkout coins) before you can view the coins branch using (git log).
+	Merging Coins Into Master
+		If a branch is deleted and leaves some commits unreachable from existing branches, those commits will continue to be accessible by commit id, until Git’s garbage collection runs. This will happen automatically from time to time, unless you actively turn it off. You can also run this process manually with (git gc).
+
+
+5. How do the diagrams help you visualize the branch structure?
+	understand the reachability, and know that braches are collabrate
+
+
+
+6. What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+	we can see the new feature, to put in the diagram, we will be able to see what changes have been make according to the time order, and who are the parent of these commit, and we can clearly see the branches we made if any.
+
+
+7. What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+	automatic merging is fast and but sometime can cause conflict
+	manually is required checking and collabrating with colleagues if same part has been changed by different people,  but it can manage the conflict by hand
