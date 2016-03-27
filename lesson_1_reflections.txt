@@ -68,11 +68,25 @@ git merge --abort             # Restore your files to their state before you sta
 											To fix this, Windows users should set the global autocrlf attribute to true: (git config --global core.autocrlf true). More information can be found here: https://help.github.com/articles/dealing-with-line-endings/#platform-all
 git log --graph --oneline             # show commit history
 git log -n1                           # show number of one commit in the past
-git remote add name urlOnGitHub       # add remote to git
+git remote add remoteName urlOnGitHub # add remote to git
 git remote                            # list the remote
 git remote -v                         # list more details v: verbose
                                       # step: git init + git add name + git commit + git remote add origin https://github.com/shu-ti/reflections.git
                                         + git push (-u) origin master + enter user and pw
+                                        […or create a new repository on the command line
+											echo "# hi" >> README.md
+											git init
+											git add README.md
+											git commit -m "first commit"
+											git remote add origin https://github.com/shu-ti/hi.git
+											git push -u origin master [remoteName branchName, the branch name to push, here only have master]
+										…or push an existing repository from the command line
+
+											git remote add origin https://github.com/shu-ti/hi.git
+											git push -u origin master]
+									    ***** when there are some changes in both github and git, to sync, first pull and then push
+git pull remoteName theBranchName     # to pull from github when there is new and not on local working area, at the time we need to make sure master is
+									    checkout, the branch name on github and git may not be the same, but most case they do, then run(git log) then we will be able to see the changes that made on github are now on git bash
 
 ---question-----------------------------
 How did viewing a diff between two versions of a file help you see the bug that
