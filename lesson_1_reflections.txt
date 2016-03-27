@@ -71,6 +71,9 @@ git log -n1                           # show number of one commit in the past
 git remote add name urlOnGitHub       # add remote to git
 git remote                            # list the remote
 git remote -v                         # list more details v: verbose
+                                      # step: git init + git add name + git commit + git remote add origin https://github.com/shu-ti/reflections.git
+                                        + git push (-u) origin master + enter user and pw
+
 ---question-----------------------------
 How did viewing a diff between two versions of a file help you see the bug that
 was introduced?
