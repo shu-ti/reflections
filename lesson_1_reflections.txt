@@ -4,194 +4,200 @@ mkdir version-control         # make version-control directory
 cd version-control            # go to version-control directory
 mkdir reflections             # create reflections directory
 cd reflections                # go to reflections directory
-subl lesson_1_reflections.txt # launch sublime with file called lesson_1_reflections.txt (you can replace subl with another editor here if you prefer a different one)
+subl lesson_1_reflections.txt # launch sublime with file called lesson_1_reflections.txt (you can replace subl with another editor 					here if you prefer a different one)
 git mv smth.html reflection   # move html into reflection directory\
-								is == mv smth.html reflection 
-								git add lib/smth.html
-								git rm smth.html
+			        this line == mv smth.html reflection 
+				             git add lib/smth.html
+					     git rm smth.html
 mv A B                        # rename A to B
-							    or mv downloads/a b: move a the current directory and name it b
+			        or mv downloads/a b: move a the current directory and name it b
 touch name.type               # create .type
 
 start filename                # open the file, it can be html
-git config ­­global user.name # "Your name"
-git config ­­global user.email# "youremail@domain.com".
-								If you want to keep the changes, you can commit them, but first you’ll need to let git know your
-								name and email address by entering the commands git config ­­global user.name
-								"Your name"and git config ­­global user.email "youremail@domain.com".
-								Then you can commit your changes using git commit ­a ­m "Commit message"where
-								the commit message can be anything you want. The ­a flag means to commit all the changes
-								you’ve made. You’ll see in Lesson 2 how to choose what to commit.
-git log                       # fatal: bad default revision 'HEAD' means no commit yet, *** run git log and git status we dont need internet
+git config --global user.name # "Your name"
+git config --global user.email# "youremail@domain.com".
+				If you want to keep the changes, you can commit them, but first you’ll need to let git know your
+				name and email address by entering the commands git config --global user.name
+				"Your name"and git config --global user.email "youremail@domain.com".
+				Then you can commit your changes using git commit ­a ­m "Commit message"where
+				the commit message can be anything you want. The ­a flag means to commit all the changes
+				you’ve made. You’ll see in Lesson 2 how to choose what to commit.
+git log                       # fatal: bad default revision 'HEAD' means no commit yet, *** run git log and git status we dont need 					internet
 git log branchName            # show the list of changes of that branch
 ls -a                         # show all the hidden files
 git status                    # show what files have changed since last commit
 git checkout
 git checkout master           # go back to master
 git diff id1 id2              # compare two commits in repository enter their IDs
-git diff                      # no arguments for compare with the staging area and the working repository, after git add filename of all files, then it 								will show no difference, if no output then shows no change anymore
+git diff                      # no arguments for compare with the staging area and the working repository, after git add filename of 					all files, then it will show no difference, if no output then shows no change anymore
 git diff --staged             # to compare staging area and repository, if no output then means no change anymore
-git reset --hard              # mean discard all changes in staging area and working directory, be careful, because then those changes are gone and cant
-							  # get back
+git reset --hard              # mean discard all changes in staging area and working directory, be careful, because then those changes 				are gone and cant get back
 git clone url                 # clone url
 git init                      # create repository which is .git
 git add                       # add to staging area
 git commit                    # commit to repository
 git branch                    # no argument show the current branch, we get *master
-git branch easy-mode          # create a new branch with the name easy-mode, then run git branch, we
-								have easy-mode and *master, * means the current checkout
-								we can run git checkout easy-mode, in order to make change to easy-mode
-git checkout -b newbranchname # == git branch newbranchname + git checkout newbranchname
-								to retain the new branch that we create, use this commit
-git merge master brancename   # merge master with another branch into master
-								(git merge) will also include the currently checked-out branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 branch3, the merged version will combine branch1 as well as branch2 and branch3.  That’s because the branch1 label will update after you make the merge commit, so it’s unlikely that you didn’t want the changes from branch1 included in the merge. For this reason, you should always checkout one of the two branches you’re planning on merging before doing the merge. Which one you should check out depends on which branch label you want to point to the new commit.
-								Since the checked-out branch is always included in the merge, you may have guessed that when you are merging two branches, you don't need to specify both of them as arguments to git merge on the command line. If you want to merge branch2 into branch1, you can simply (git checkout branch1) and then type (git merge branch2). 
-								The only reason to type (git merge branch1 branch2) is if it helps you keep better mental track of which branches you are merging. 
-								Also, since the two branches are merged, the order in which they are typed into the command line does not matter. [The key is to remember that git merge always merges all the specified branches into the currently checked out branch,] creating a new commit for that branch.
+git branch easy-mode          # create a new branch with the name easy-mode, then run git branch, we have easy-mode and *master, 					*means the current checkout we can run git checkout easy-mode, in order to make change to easy-mode
+git checkout -b newbranchname # == git branch newbranchname + git checkout newbranchname to retain the new branch that we create, 
+				use this commit
+git merge master brancename   # merge master with another branch into master(git merge) will also include the currently checked-out  					branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 					branch3, the merged version will combine branch1 as well as branch2 and branch3.  That’s because 					the branch1 label will update after you make the merge commit, so it’s unlikely that you didn’t 				want the changes from branch1 included in the merge. For this reason, you should always checkout one 					of the two branches you’re planning on merging before doing the merge. Which one you should check 					out depends on which branch label you want to point to the new commit.
+			        Since the checked-out branch is always included in the merge, you may have guessed that when you are 					merging two branches, you don't need to specify both of them as arguments to git merge on the 						command line. If you want to merge branch2 into branch1, you can simply (git checkout branch1) and 				then type (git merge branch2). 
+				The only reason to type (git merge branch1 branch2) is if it helps you keep better mental track of 					which branches you are merging. 
+				Also, since the two branches are merged, the order in which they are typed into the command line does 				not matter. [The key is to remember that git merge always merges all the specified branches into the 						currently checked out branch,] creating a new commit for that branch.
+				
 git show commitID             # show difference between a commnit and its parent, if we dont know who is the parent
-git branch -d branchname      # -d: delete, delete the branch coins, it is ok after merge, because now master has already access to the branch, now 									delete the coin branch will only delete the label, 
-git merge --abort             # Restore your files to their state before you started the merge by running
-								Merge conflict
+git branch -d branchname      # -d: delete, delete the branch coins, it is ok after merge, because now master has already access to 					the branch, now delete the coin branch will only delete the label, 
+git merge --abort             # Restore your files to their state before you started the merge by running this line.
+					Merge conflict
+						If you get a message like this
+					 	Auto-merging game.js
+						CONFLICT (content): Merge conflict in game.js
+						Automatic merge failed; fix conflicts and then commit the result.
+					[then your files were not in the same state as Caroline's when you started the merge]. To fix 					this, complete the following steps:Restore your files to their state before you started the
+					merge by running (git merge --abort)
+					Double check the state of your files. If you run (git log) while the master branch is checked 					out, you should see Caroline's "Add color" commit as the second-most-recent, and the most 
+					recent should be your commit fixing the bullet bug. If you use git diff to compare your commit
+					to Caroline's, your commit should introduce the line this.delayBeforeBullet = 10; on line 424. 					The line should be indented to the same level as the line below it using only spaces (no tabs), and 						the line should have no spaces after it.
+					Once your file is in the correct state, create a new commit with your changes.Try the merge Q						again.
 
-									If you get a message like this
-										Auto-merging game.js
-										CONFLICT (content): Merge conflict in game.js
-											Automatic merge failed; fix conflicts and then commit the result.
-											[then your files were not in the same state as Caroline's when you started the merge]. To fix this, complete the following steps:
-										Restore your files to their state before you started the merge by running (git merge --abort)
-										Double check the state of your files. If you run (git log) while the master branch is checked out, you should see Caroline's "Add color" commit as the second-most-recent, and the most recent should be your commit fixing the bullet bug. If you use git diff to compare your commit to Caroline's, your commit should introduce the line this.delayBeforeBullet = 10; on line 424. The line should be indented to the same level as the line below it using only spaces (no tabs), and the line should have no spaces after it.
-										Once your file is in the correct state, create a new commit with your changes.
-										Try the merge again.
+					Merge conflict (Newline characters between Windows and Unix systems)
+						Context: Whenever we hit the "Enter" key on the keyboard, we are actually telling the 						computer to insert an invisible character into our text file to indicate to the computer 							that there should be a new line. Unix systems adds one character called the "line 						feed" character or LF or \n while Windows systems adds two characters, "carriage return" 						and "line feed" or CRLF or \r\n.
 
-									Merge conflict (Newline characters between Windows and Unix systems)
-											Context: Whenever we hit the "Enter" key on the keyboard, we are actually telling the computer to insert an invisible character into our text file to indicate to the computer that there should be a new line. Unix systems adds one character called the "line feed" character or LF or \n while Windows systems adds two characters, "carriage return" and "line feed" or CRLF or \r\n.
+						if Caroline's files have LF because it was edited on Mac OSX, which uses LF. If a 							Windows user were to edit Caroline's files, the Windows text editor might convert 							all LF to CRLF to make editing files possible. When the Windows user merges her 							file with Caroline's files, a merge conflict will result due to the different LF 						and CRLF characters.
 
-											if Caroline's files have LF because it was edited on Mac OSX, which uses LF. If a Windows user were to edit Caroline's files, the Windows text editor might convert all LF to CRLF to make editing files possible. When the Windows user merges her file with Caroline's files, a merge conflict will result due to the different LF and CRLF characters.
+						To fix this, Windows users should set the global autocrlf attribute to true: (git 							config --global core.autocrlf true). More information can be found here: https								://help.github.com/articles/dealing-with-line-endings/#platform-all
 
-											To fix this, Windows users should set the global autocrlf attribute to true: (git config --global core.autocrlf true). More information can be found here: https://help.github.com/articles/dealing-with-line-endings/#platform-all
+					Conflicting collaboration:
+						if on your local has ac5<---b3c(master), but on your github has ac5<---df6(master), in 						this case should you pull or push? the different commits happen when you work on
+						different machine, or made changes on both local and github, or collaborating with 							others
 
-									Conflicting collaboration:
-											if on your local has ac5<---b3c(master), but on your github has ac5<---df6(master), in this case should you pull or push? the different commits happen when you work on different machine, or made changes on both local and github, or collaborating with others
+				 	merging remote changes: 
+						merging the local and remote branches, when we have a remote set-up, git stores local 						copies of all the remote branches, these will each contain the state of the remote 
+						branch as of the last time you pushed or pulled the branch.we'll consider a repository 						that got created on github with a readme, and then got cloned to the local computer, 
+						remember that cloning sets up a remote for you called origin, and when you clone a 							repository, you get a local branch called master, that points to the same commit as 						the remote one, in addition you still get a local copy of that last known positon
+						of that branch on the remote, the name of that branch includes the name of the remote,
+						origin, since yo can have multiple remotes set up as well as the name of branch on the
+						remote. in this case, master, with the two separated by a slash
+					local 							 github
+					    eb2 (origin/master)master                              eb2 master
+			                    and since we've just had an interaction with the remote, it's currently in the same
+			                    location as the actual remote version.
+					    [origin/master will contain whatever commits were present on the GitHub master branch when 					    you cloned the repository.]
+					*****  if we make commit on the master branch locally:
+					 local 							
+					   eb2 (origin/master)master<---f34 master
+					   when you make a commit on a branch that branch will get updated to point to the new commit,						   but neither the local origin/master branch nor the actual master branch on the github						   repository will get updated because you haven't communicated that you want to do that.
 
-									merging remote changes: 
-										   merging the local and remote branches, when we have a remote set-up, git stores local copies of all the remote branches, these will each contain the state of the remote branch as of the last time you pushed or pulled the branch.we'll consider a repository that got created on github with a readme, and then got cloned to the local computer, remember that cloning sets up a remote for you called origin, and when you clone a repository, you get a local branch called master, that points to the same commit as the remote one, in addition you still get a local copy of that last known positon of that branch on the remote, the name of that branch includes the name of the remote, origin, since yo can have multiple remotes set up as well as the name of branch on the remote. in this case, master, with the two separated by a slash
-										   	 local 							 github
-										   	     eb2 (origin/master)master     eb2 master
-										   and since we've just had an interaction with the remote, it's currently in the same location as the actual remote version.
-										   [origin/master will contain whatever commits were present on the GitHub master branch when you cloned the repository.]
-								*****  if we make commit on the master branch locally:
-										   	 local 							
-										   		 eb2 (origin/master)master<---f34 master
-										   when you make a commit on a branch that branch will get updated to point to the new commit, but neither the local origin/master branch nor the actual master branch on the github repository will get updated because you haven't communicated that you want to do that.
+					   however, if you push the master branch, the local origin/master branch and the remote						   github branch will get updated with the new commit
+				        local                              github
+				           eb2<---f34(origin/master)master    eb2<---f34master
 
-										   however, if you push the master branch, the local origin/master branch and the remote github branch will get updated with the new commit
-										      local                              github
-										         eb2<---f34(origin/master)master    eb2<---f34master
+					similarly, if this branch were to get updated on github and then we pulled, both of thes						would get updated with the new commit.
 
-										   similarly, if this branch were to get updated on github and then we pulled, both of these would get updated with the new commit.
+					but if there are different changes on each repository, with one change locally and another o						remote
+					local                          github
+				           eb2<-- f34(o/m)<-- a72master    eb2<-- f34<-- 5b3master
 
-										   but if there are different changes on each repository, with one change locally and another on remote
-										      local                          github
-										         eb2<-- f34(o/m)<-- a72master    eb2<-- f34<-- 5b3master
+				        it turns out that you can update just the local copy of the remote branch:  
+						   5b3(o/m)
+					local       /              github
+				           eb2<--f34<--a72master    eb2<--f34<--5b3master
 
-										   it turns out that you can update just the local copy of the remote branch:  
-										                   5b3(o/m)
-										      local       /              github
-										         eb2<--f34<--a72master    eb2<--f34<--5b3master
+					and *****leaving your actual local version alone by running the command (git fetch)[local						<---fetch- github], in cases like this, we can use(git fetch) to update the local copy of 						the remote branch, so that you can use (git log) and (git diff) to see what changes were 						introduced both on the local and remote repositories.
+					this way, if you are going to be offline, you can update your local copy of the remote branch 					before you leave, and then you'll have access to any updates that have been made to the remote.
+					now we can incorporate 5b3 and a72 by merging them usring(git merge). this is exactly what 						happens when we use(git pull)
+				       		1, the remote branch gets fetched, updating the local 	copy of the remote branch
+						2, then, that branch gets merged into the local one.
 
-										   and *****leaving your actual local version alone by running the command (git fetch)[local <---fetch- github], in cases like this, we can use(git fetch) to update the local copy of the remote branch, so that you can use (git log) and (git diff) to see what changes were introduced both on the local and remote repositories.
-										   this way, if you are going to be offline, you can update your local copy of the remote branch before you leave, and then you'll have access to any updates that have been made to the remote.
-									       now we can incorporate 5b3 and a72 by merging them usring(git merge). this is exactly what happens when we use(git pull)
-									       		1, the remote branch gets fetched, updating the local 	copy of the remote branch
-									       		2, then, that branch gets merged into the local one.
+					(git pull origin master == git fetch origin + git merge master origin/master)
 
-									           (git pull origin master == git fetch origin +
-									               			  			git merge master origin/master)
-
-									    one commit ahead
-									    one commit behind
-									    your branch is up-to-date: means two branches point to the
-									    same commit.
-									    two branches are out of sync: means each has a commit not present in the other.
+					one commit ahead
+         				one commit behind
+				        your branch is up-to-date: means two branches point to the same commit.
+					two branches are out of sync: means each has a commit not present in the other.
 
 
-							*****   after run (git fetch origin), to merge the two, if you want to all merge to master, make sure that master is checkout, and when we run (git merge master origin/master), we will get conflict message, then to manually correct the conflict, open the text editor, and modify it, detele the ancestors and the other one conflict that you dont need to keep, then save it. after all, run (git add fileName),and (git commit) [everytime we merge git will automatically create a merge message for us, we can just use it]
+					*****   after run (git fetch origin), to merge the two, if you want to all merge to master, 						make sure that master is checkout, and when we run (git merge master origin/master), we will 					get conflict message, then to manually correct the conflict, open the text editor, and modify 							it, detele the ancestors and the other one conflict that you dont need to keep, then save 					it. after all, run (git add fileName),and (git commit) [everytime we merge git wil							automatically create a merge message for us, we can just use it]
 
+fast-forward merge                    # this kind of merge occurs when you merge two commits, where one is ancestor of the other, 						eg: o<---a<---b, This way if we use git merge, we will need to move a after b, 								***** merge commits are generated to keep track of all the commits that played a part in						getting to the new stage, but here before merge b already includes a, so there is mak						no sense that move a after b, so instead of adding a new commit, we can update the label						a to point to b, which means we take a label from the history of a branch in its ancestry						and move forward to the tip of the branch, it is changes the where a branch points
 
-
-fast-forward merge                    # this kind of merge occurs when you merge two commits, where one is ancestor of the other, eg: o<---a<---b, This way if we use git merge, we will need to move a after b, ***** merge commits are generated to keep track of all the commits that played a part in getting to the new stage, but here before merge b already includes a, so there is make no sense that move a after b, so instead of adding a new commit, we can update the label a to point to b, which means we take a label from the history of a branch in its ancestry, and move forward to the tip of the branch, it is changes the where a branch points
 git log --graph --oneline             # show commit history
 git log -n 1                          # show number of one commit in the past
-git remote add remoteName urlOnGitHub # add remote to git, the remoteName can be any names and the 											name will be use within this repository to refer to the 											repository on github, if we only have one remote, it's 												standard to name it origin, the url on github is the remote repository you refer to on github
+git remote add remoteName urlOnGitHub # add remote to git, the remoteName can be any names and the name will be use within this 						repository to refer to the repository on github, if we only have one remote, it's 							standard to name it origin, the url on github is the remote repository you refer to on 							github
 git remote                            # list the remote
 git remote -v                         # list more details v: verbose
-										this will show origin  https:.....(fetch) fetch data from
-										               origin  https:.....(push)  push data to
-                                      # step: git init + git add name + git commit + git remote add origin https://github.com/shu-ti/reflections.git
-                                        + git push (-u) origin master + enter user and pw
-                                        […or create a new repository on the command line
-											echo "# hi" >> README.md
-											git init
-											git add README.md
-											git commit -m "first commit"
-											git remote add origin https://github.com/shu-ti/hi.git
-											git push -u origin master [remoteName branchName, the branch name to push, here only have master]
-										…or push an existing repository from the command line
+					this will show origin  https:.....(fetch) fetch data from origin  
+							       https:.....(push)  push data to
+                                        steps:
+                                		 git init + git add name + git commit														 + git remote add origin https://github.com/shu-ti/reflections.git
+                                			 + git push (-u) origin master + enter user and pw
+                                	or
+                                        [create a new repository on the command line
+					echo "# hi" >> README.md
+					git init
+					git add README.md
+					git commit -m "first commit"
+					git remote add origin https://github.com/shu-ti/hi.git
+					git push -u origin master [remoteName branchName, the branch name to push, here only have 						master]
+					
+					or push an existing repository from the command line:
+					git remote add origin https://github.com/shu-ti/hi.git
+					git push -u origin master]
+					
+					 ***** when there are some changes in both github and git, to sync, first pull and then push
+					 
+git push remoteName branch            # push takes two arguments: the remote i want to send changes to,and the name of the local 						branch that i'd like to	push.
+					git push copy all the commits reachable from my master branch to origin, which is my 							repositfory on github, by default the branch created on github will have the same name a						the local branch that i push, here namely master.
+					git push [local -push--> github]
 
-											git remote add origin https://github.com/shu-ti/hi.git
-											git push -u origin master]
-									    ***** when there are some changes in both github and git, to sync, first pull and then push
-git push remoteName branch            # push takes two arguments: the remote i want to send changes to,and the name of the local branch that i'd like to
-										push.
-										git push copy all the commits reachable from my master branch to origin, which is my repositfory on github, by default the branch created on github will have the same name as the local branch that i push, here namely master.git push [local -push--> github]
+git pull remoteName theBranchName     # to pull from github when there is new and not on local working area, 									at the time we need to make sure master is checkout, the branch name on github and git may 						not be the same, but most case they do, then run(git log) then we will be able to see the 					changes that made on github are now on git bash
+					git pull [local<---pull-  github]
+                                    
+                                	 merge remote change:   
+                                        (git pull origin master) == (git fetch origin) + (git merge master origin/master) 
+                                        when both local and github has changed on different things
 
-git pull remoteName theBranchName     # to pull from github when there is new and not on local working area, at the time we need to make sure master is
-									    checkout, the branch name on github and git may not be the same, but most case they do, then run(git log) then we will be able to see the changes that made on github are now on git bash
-									    git pull [local<---pull-  github]
-                                     merge remote change:   
-                                        (git pull origin master) == (git fetch origin) + (git merge master origin/master) when both local and github has changed on different things
-
-                                        update the local copies by (git fetch origin), which will update all the local copies of every branch for the origin remote
+                                        update the local copies by (git fetch origin), which will update all the local copies of						every branch for the origin remote
 
 
 
 
 ---question-----------------------------
-How did viewing a diff between two versions of a file help you see the bug that
+1, How did viewing a diff between two versions of a file help you see the bug that
 was introduced?
 
     diff uses + and - to diff the previous and the current, it is easy to view
 
-How could having easy access to the entire history of a file make you a more
+2, How could having easy access to the entire history of a file make you a more
 efficient programmer in the long term?
 
     if i made a typo or other mistakes or i dont like the new change i can always undo and go back on any version of my code
 
-What do you think are the pros and cons of manually choosing when to create a
+3, What do you think are the pros and cons of manually choosing when to create a
 commit, like you do in Git, vs having versions automatically saved, like Google
 docs does?
 
     pros: we can control the size of versions we have, so it wont saved unecessary version
     cons: we may forget to save at the end, or accident happen that could allow us to save
 
-Why do you think some version control systems, like Git, allow saving multiple
+4, Why do you think some version control systems, like Git, allow saving multiple
 files in one commit, while others, like Google Docs, treat each file separately?
 	
-	git allows us to changes multiple file and commit all them togethe, this is because sometimes our code are in different files
-	it require all the file all ready and correct in order to let the code run without error,
-	google docs will only add one file at a time, no need to interact with other files in order to use, so it saves files seperately
+    git allows us to changes multiple file and commit all them togethe, this is because sometimes our code are in different files
+    it require all the file all ready and correct in order to let the code run without error,
+    google docs will only add one file at a time, no need to interact with other files in order to use, so it saves files seperately
 
-How can you use the commands git log and git diff to view the history of files?
+5, How can you use the commands git log and git diff to view the history of files?
 
     git log lists all the changes, authors and time that made in the past
     git diff allows you to compare the differences between two commits.
 
-How might using version control make you more confident to make changes that
+6, How might using version control make you more confident to make changes that
 could break something?
 
     i can always go back to compare and check, all the version will be saved with notes
 
-Now that you have your workspace set up, what do you want to try using Git for?
+7, Now that you have your workspace set up, what do you want to try using Git for?
 
     share files 
 
@@ -208,28 +214,31 @@ definition:--------------------------
 
 2, a git repository is the collection of files that are tracked by git as a cohesive unit
 
-3, a forking repository: [clone the repository to another user will automatically set up the owner's repository as a remote called origin. then we can create a new repository on github, then we can set up this new repository as a remote and we can give its a new name if we wish, then we can push the changes to the remote, and others' wanna change the code, they can clone the new code as origin and modify too. all the changes will not give the own any recognition for the work he did on his original repository. and no one will see your code and directly know that they are from somebody else's code unless you link to the owner.]
-		  similarly we can use fork to make it simpler.
-		  allows you to make a copy of somebody else's repository directly on the github servers 	without pulling down the code to your local machine first, you can fork an exsiting repository and have it appear under your own account with just a single click, then to make your modifications, you'd likely want to pull down the code onto your own machine, unless 	the files are simple enough to edit directly on github, forking is a lot like cloning, in fact, a fork is just a clone that github makes for you on their own machines. there are a few other side effects to forking, like github keeping track of the number of people who've made forks on your repository. and the forks all linking back to the original, it also makes it eaiser to suggest changes back to the original repository. we can make a fork on github and the clone it, the clones dont need to know anything about the original repository.
+3, a forking repository: 
+	[clone the repository to another user will automatically set up the owner's repository as a remote called origin			then we can create a new repository on github, then we can set up this new repository as a remote and we can giv			its a new name if we wish, then we can push the changes to the remote, and others' wanna change the code, they 				can clone the new code as origin and modify too. all the changes will not give the own any recognition for the work he 		did on his original repository. and no one will see your code and directly know that they are from somebody else's 			code unless you link to the owner.]
+	
+	similarly we can use fork to make it simpler.
+	allows you to make a copy of somebody else's repository directly on the github servers 	without pulling down the 			code to your local machine first, you can fork an exsiting repository and have it appear under your own account 			with just a single click, then to make your modifications, you'd likely want to pull down the code onto your own			machine, unless the files are simple enough to edit directly on github, forking is a lot like cloning, in fact, 		a fork is just a clone that github makes for you on their own machines. there are a few other side effects to 				forking, like github keeping track of the number of people who've made forks on your repository. and the forks 				all linking back to the original, it also makes it eaiser to suggest changes back to the original repository. 				we can make a fork on github and the clone it, the clones dont need to know anything about the original repository.
 
-		  {fork is purely a github invention, creating new github-hosted repositories out of existing github-hosted repositories. creating a forks should not involve any local repositories. but we can use clone locally. it is like cloneing repository from one github onto another github, forking is only used within the context of github, taking an existing github repository and making a copy of it, whereas clone works on any two repositories}
+	{fork is purely a github invention, creating new github-hosted repositories out of existing github-hosted repositories. 		creating a forks should not involve any local repositories. but we can use clone locally. it is like cloneing repository 		from one github onto another github, forking is only used within the context of github, taking an existing github 			repository and making a copy of it, whereas clone works on any two repositories}
 
-		  {branch happen on a single repository, we can push and pull branches, but when you create one branch, you're creating it on one single repository}
+	{branch happen on a single repository, we can push and pull branches, but when you create one branch, you're creating it on 		one single repository}
 
-		  {cloning involves taking an exsiting repository and makeing one just like it, so the original repository could either be remote like clone from github to local, or we could even clone a local repository into another spot on your computer. When you clone a repository git will automatically sets up a remote pointing to the repository you clone from, so we dont need to add the fork on github as a remote, we can modify and push it without make remote.}
+	{cloning involves taking an exsiting repository and makeing one just like it, so the original repository could either be 		remote like clone from github to local, or we could even clone a local repository into another spot on your computer. When 		you clone a repository git will automatically sets up a remote pointing to the repository you clone from, so we dont need 	to add the fork on github as a remote, we can modify and push it without make remote.}
 
-		  to invite other to join and collabrote with your work, click setting--> coolaborators --> add their github user name
+	to invite other to join and collabrote with your work, click setting--> coolaborators --> add their github user name
 
-		  Where was your commit?
-			Before you ran git push, your change should have only existed locally via git log. Commits will not automatically be shared to remotes - you have to manually push your branch if you want to share changes.
+	Where was your commit?
+	Before you ran git push, your change should have only existed locally via git log. Commits will not automatically be share		to remotes - you have to manually push your branch if you want to share changes.
 
-			After you ran git push, your change should have existed locally and on your fork. It should not have existed on Larry's repository, which is the repository you forked. The reason you forked in the first place is because you don't have permission to change Larry's repository!
+	After you ran git push, your change should have existed locally and on your fork. It should not have existed on Larry's 		repository, which is the repository you forked. The reason you forked in the first place is because you don't hav	 		permission to change Larry's repository!
 
 
 
-		we can click the fork button on the top right on github and then we will see it on my page, the run bash (git clone url) to clone it on my computer to modify it, after clone we dont need to create a remote in order to push, it automatically there, and we can to add, commit and push steps, use (git diff) to see the change, and (git status) to see the status
-				[Simulate Sarah's Changes
-				In the Downloadables section, there is a file called sarah_changes.sh, which contains code to make it look like Sarah has modified your fork on GitHub. To run the code, download the file, then using Git Bash or your terminal, cd to the directory where you've saved it. Then type bash sarah_changes.sh followed by a space, followed by the url to your fork. For example, if Caroline were running the code, she would type (bash sarah_changes.sh https://github.com/cbuckey-uda/recipes.git)Ronan Keatingmv, but you should use the url for your fork, not Caroline's fork. If you haven't set up password caching, then you will be prompted to enter your GitHub username and password.]
+	we can click the fork button on the top right on github and then we will see it on my page, the run bash (git clone url) to 		clone it on my computer to modify it, after clone we dont need to create a remote in order to push, it automatically there, 	and we can to add, commit and push steps, use (git diff) to see the change, and (git status) to see the status
+	
+	[Simulate Sarah's Changes
+	In the Downloadables section, there is a file called sarah_changes.sh, which contains code to make it look like Sarah has 		modified your fork on GitHub. To run the code, download the file, then using Git Bash or your terminal, cd to the directory 	where you've saved it. Then type bash sarah_changes.sh followed by a space, followed by the url to your fork. For example, if 			Caroline were running the code, she would type (bash sarah_changes.sh https://github.com/cbuckey-uda/recipes.git)Ronan 		Keatingmv, but you should use the url for your fork, not Caroline's fork. If you haven't set up password caching, then you 		will be prompted to enter your GitHub username and password.]
 --------------------
 
 
@@ -252,38 +261,41 @@ You'll need to close and re-open Git Bash before all your changes take effect.
 -- ------------------------------------------------
 Making a pull request:
 1, if you dont know if the change your contributor like it too. we can make a pull request
-	first make a local change,  and push on github, but the change is not on master branch, this way if the change is not right, the master wont be affected
-			local:									 github:
+	first make a local change,  and push on github, but the change is not on master branch, this way if the change is not right, 		the master wont be affected
+			local:						github:
 				v1<--v2<--v3 master                       v1<--v2<--v3 master     
-							\                                        \
-							  change	     						 change
-		steps:
-			(git branch newBranchName)
-			(git checkout newBranchName)
-			go ahead and make change
-			(git add theFileThatHasTheChang)
-			(git commit)
-			(git push origin NewBranchName)
-        when we go on to the github, we will see the branch colom has two now. if you just pushed, you will see the compare & pull request button, if not, we can click the branch to switch to the newBranchName, and on the right there is a pull request buttton. if you are forking this project from other person, be default, when you pull request, github assumes you want to merge the changes into the owner of this project(the original repository), which is not what you want to do. you want to mergo to your own fork, on the right there is a edit button, click it and change the base fork to your repository and then click create pull request.
-        when the other person sees it, if there is no conflict to the branch to merge to the master, there will be a button called merge pull request
-    definition: pull request means wish to merge request
+				           \                                         \
+				           change	     			     change
+	steps:
+		(git branch newBranchName)
+		(git checkout newBranchName)
+		go ahead and make change
+		(git add theFileThatHasTheChang)
+		(git commit)
+		(git push origin NewBranchName)
+        when we go on to the github, we will see the branch colom has two now. if you just pushed, you will see the compare & pull 		request button, if not, we can click the branch to switch to the newBranchName, and on the right there is a pull request 		buttton. if you are forking this project from other person, be default, when you pull request, github assumes you want to 	merge the changes into the owner of this project(the original repository), which is not what you want to do. you want to mergo 		to your own fork, on the right there is a edit button, click it and change the base fork to your repository and then click 		create pull request.
+     
+        when the other person sees it, if there is no conflict to the branch to merge to the master, there will be a button called 		merge pull request
+		definition: pull request means wish to merge request
 
-what's get changed: 
-	a. edit and save           ---- local working directory
-	b. git add                 ---- local staging area
-	c. git commit              ---- local master branch
-	d. git pull origin master  ---- local working directory + local staging area + local master branch
-	e. git push origin master  ---- github master branch
-	f. merge alt pull request  ---- github master branch
+		{ what's get changed: 
+			a. edit and save           ---- local working directory
+			b. git add                 ---- local staging area
+			c. git commit              ---- local master branch
+			d. git pull origin master  ---- local working directory + local staging area + local master branch
+			e. git push origin master  ---- github master branch
+			f. merge alt pull request  ---- github master branch
+		}
 
 
 
 2, if you and your contributor both change the same place, then she pull request first, then you will solve the merge conflict.
 	first on github comfirm the merge 
 	then delete the branch that the pull request your contributor made, because after merge we dont need that branch anymore
-	then go back to the merge pull request, we will see that we cant automatically merge this pull request(this is because the performing a merge between the master branch and my branch would now causee merge conflicts, rather than having you resolve the merge conflict from the browser, github requires you to merge the changes on your own computer and then update the pull request with the merged version)
-      steps: 
-      		(git pull origin master) this will update my local version with all the commits on master that are not on my local version, as well as update the origin/master 
+	then go back to the merge pull request, we will see that we cant automatically merge this pull request(this is because the 		performing a merge between the master branch and my branch would now causee merge conflicts, rather than having you resolve 	the merge conflict from the browser, github requires you to merge the changes on your own computer and then update the pull 			request with the merged version)
+     
+        steps: 
+      		(git pull origin master) this will update my local version with all the commits on master that are not on my local 				version, as well as update the origin/master 
       		or [(git fetch) to examine the changes and then run
       			(git merge origin/master master) if you dont know what is the change]
       		(git checkout conflictBranch)
@@ -293,29 +305,28 @@ what's get changed:
       		(git commit)
       		(git push origin conflictBranch) push branch up to github which will update the pull request
 
-      		now the merge pull request button become green and the pull request can be automatically merged, but my change will not on master branch, so when i click files changed, i can only see the change on my branch, and my contributor's change is on both my branch and the master branch, i can leave a commant for my contributor to double check before merger to master. press the green button to merge pull request. now then run git log -n 1 :
-      			Commit merging a pull request
-						After running git log -n 1, you should have seen output something like this:
+      		now the merge pull request button become green and the pull request can be automatically merged, but my change will 			not on master branch, so when i click files changed, i can only see the change on my branch, and my contributor's 			change is on both my branch and the master branch, i can leave a commant for my contributor to double check before 		merger to master. press the green button to merge pull request. now then run git log -n 1 :
+      			
+      		Commit merging a pull request
+			After running git log -n 1, you should have seen output something like this:
+				commit bc368511c6406028c77e2631f77c4d22a5da16d0
+				Merge: 79fff84 23d1775
+				Author: author
+				Date:   Tue Sep 30 18:50:28 2014 -0400
+				Merge pull request # 1 from author/different-oil
 
-						commit bc368511c6406028c77e2631f77c4d22a5da16d0
-						Merge: 79fff84 23d1775
-						Author: author
-						Date:   Tue Sep 30 18:50:28 2014 -0400
-
-						    Merge pull request # 1 from author/different-oil
-
-						    Change vegetable oil to canola oil
+				    Change vegetable oil to canola oil
 						
-						Notice that the commit message:
-						Indicates that a pull request was merged
-						Gives the number of the pull request (#1 here)
-						Gives the branch the pull request was merged from (author/different-oil here).
-						Contains the title of the pull request.
-						GitHub automatically creates a commit message like this whenever a pull request is merged to make it easy to see pull requests in the commit history. Even when the merge is a fast-forward merge, GitHub still creates this commit.
+				Notice that the commit message:
+					Indicates that a pull request was merged
+					Gives the number of the pull request (#1 here)
+					Gives the branch the pull request was merged from (author/different-oil here).
+					Contains the title of the pull request.
+					GitHub automatically creates a commit message like this whenever a pull request is merged to 							make it easy to see pull requests in the commit history. Even when the merge is a 							fast-forward merge, GitHub still creates this commit.
 
 
 
-			 you need to pull changes into your local master branch, merge the local master into your branch (different-oil, in our case), then push your branch to the remote before finally merging your branch into master, either locally or on GitHub.
+		you need to pull changes into your local master branch, merge the local master into your branc					 	(different-oil, in our case), then push your branch to the remote before finally merging your branch into master, 			either locally or on GitHub.
 
 
 -- ---------------------------------------------------------------------------------
