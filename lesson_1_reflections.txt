@@ -322,7 +322,7 @@ Making a pull request:
 					Gives the number of the pull request (#1 here)
 					Gives the branch the pull request was merged from (author/different-oil here).
 					Contains the title of the pull request.
-					GitHub automatically creates a commit message like this whenever a pull request is merged to 							make it easy to see pull requests in the commit history. Even when the merge is a 							fast-forward merge, GitHub still creates this commit.
+					GitHub automatically creates a commit message like this whenever a pull request is merged tomake it easy to see pull requests in the commit history. Even when the merge is a 							fast-forward merge, GitHub still creates this commit.
 
 
 
@@ -381,7 +381,7 @@ At this point, commit 3 is the latest commit, so if you checkout commit 1, none 
 
 Checking out an earlier commit will change the state of more than one file.
 
-Checking out an earlier commit will change the state of every file in the repository.
+Checking out an earlier commit will change the state of every file in the repository.\n
 Both of these are sometimes true. Since each commit tracks the state of all files in the repository, it is possible that checking out an earlier commit will change the state of multiple files, or even all the files in the repository. However, it is possible to save a new commit after changing only one file, so it is possible only one file will change. 
 
 After checking out a commit, the state of all the files in the repository will be from the same point in time.
